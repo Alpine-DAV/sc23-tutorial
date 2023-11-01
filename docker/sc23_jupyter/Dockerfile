@@ -4,13 +4,13 @@
 
 FROM alpinedav/ascent:latest
 
-# copy catalyst build script in
-COPY docker_catalyst_build.sh /
-RUN  ./docker_catalyst_build.sh
-
 # copy tutorial setup script in
 COPY docker_tutorial_examples_setup.sh /
 RUN  ./docker_tutorial_examples_setup.sh
+
+# copy catalyst build script in
+COPY docker_catalyst_build.sh /
+RUN  ./docker_catalyst_build.sh
 
 # add our 'user' with password 'docker'
 RUN useradd -ms /bin/bash -G sudo user && echo "user:docker" | chpasswd

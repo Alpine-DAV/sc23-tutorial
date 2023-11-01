@@ -7,7 +7,7 @@ export TAG_BASE=alpinedav/ascent:sc23_jupyter
 
 date
 
-python build_and_tag.py ${TAG_BASE}
+python3 build_and_tag.py ${TAG_BASE}
 
 date
 
