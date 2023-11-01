@@ -13,5 +13,7 @@ cp -r /ascent/install/examples/ascent/tutorial/ascent_intro /tutorial/
 # copy heat diffusion examples 
 git clone https://github.com/jfavre/InSitu-Vis-Tutorial2022/
 cp -r InSitu-Vis-Tutorial2022/Examples/HeatDiffusion /tutorial/
+# cleanup
+rm -rf InSitu-Vis-Tutorial2022
 
 
