@@ -4,6 +4,9 @@
 
 FROM alpinedav/ascent:latest
 
+#
+COPY heat_diffusion /heat_diffusion
+
 # copy tutorial setup script in
 COPY docker_tutorial_examples_setup.sh /
 RUN  ./docker_tutorial_examples_setup.sh
