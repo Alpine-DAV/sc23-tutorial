@@ -10,8 +10,8 @@
 # it is strongly advised to use grid resolutions like 2^N and
 # an even number of MPI partitions, e.g.
 #
-# Run: mpiexec -n 4 python3 heat_diffusion_insitu_parallel_Catalyst.py \
-#                           --res=64 -t 1000 --script ../C++/catalyst_state.py
+# Run: mpiexec -n 4 python3 heat_diffusion_insitu_parallel_catalyst.py \
+#                           --res=64 -t 1000 --script catalyst_actions.py
 #
 # Tested with Python 3.10.12, Mon  2 Oct 08:16:07 CEST 2023
 #
@@ -292,7 +292,7 @@ parser.add_argument("-m", "--mesh", type=str, default="uniform",
                     help="mesh type (default: uniform)")
 parser.add_argument("-s", "--script", type=str,
                     help="path to the Catalyst script to use for in situ processing.",
-                    default="../C++/catalyst_state.py")
+                    default="catalyst_actions.py")
 parser.add_argument("-n", "--noinsitu",
                     help="toggle the use of the in-situ vis coupling with Catalyst",
                     action='store_false')  # on/off flag)

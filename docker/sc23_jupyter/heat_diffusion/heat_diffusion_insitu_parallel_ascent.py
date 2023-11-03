@@ -6,7 +6,7 @@
 #
 # this version runs in parallel, splitting the domain in the vertical direction
 #
-# Run: mpiexec -n 2 python3 heat_diffusion_insitu_parallel_Ascent.py \
+# Run: mpiexec -n 2 python3 heat_diffusion_insitu_parallel_ascent.py \
 #                           --res=64 -t 1000 --mesh=uniform
 #
 # Tested with Python 3.10.12, Tue 12 Sep 16:28:23 CEST 2023
@@ -278,8 +278,9 @@ class ParallelSimulation_With_Ascent(Simulation):
         add_extr["action"] = "add_extracts"
         extracts = add_extr["extracts"]
         extracts["e1/type"] = "relay"
-        extracts["e1/params/path"] = savedir + "mesh"
+        extracts["e1/params/path"] = savedir + "ascent_mesh_extract"
         extracts["e1/params/protocol"] = "blueprint/mesh/hdf5"
+        print(action)
         self.a.execute(action)
         self.a.close()
 
@@ -318,7 +319,7 @@ parser.add_argument("-f", "--frequency", type=int, default=50,
                     help="How often should the Ascent script be executed in situ processing.")
 parser.add_argument("-d", "--dir", type=str,
                     help="path to a directory where to dump the Blueprint output",
-                    default=".")
+                    default="./")
 parser.add_argument("-n", "--noinsitu",
                     help="toggle the use of the in-situ vis coupling with Ascent",
                     action='store_false')  # on/off flag)
