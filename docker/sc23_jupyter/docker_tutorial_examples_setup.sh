@@ -10,13 +10,7 @@ mkdir /tutorial
 # copy ascent tutorial content
 cp -r /ascent/install/examples/ascent/tutorial/ascent_intro /tutorial/
 
-# copy older heat diffusion examples 
-git clone https://github.com/jfavre/InSitu-Vis-Tutorial2022/
-cp -r InSitu-Vis-Tutorial2022/Examples/HeatDiffusion /tutorial/
-# cleanup
-rm -rf InSitu-Vis-Tutorial2022
-
-# copy newer heat diffusion 
+# copy heat diffusion examples
 cp -r /heat_diffusion /tutorial/
 
 
