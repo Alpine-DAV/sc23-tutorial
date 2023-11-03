@@ -45,6 +45,7 @@ RUN cp -r /tutorial/ /home/user/
 # gen script that allows us to easily run jupyter lab
 RUN cp /ascent_docker_setup_env.sh /home/user/sc23_docker_run_jupyterlab.sh
 RUN cat /catalyst_docker_setup_env.sh >> /home/user/sc23_docker_run_jupyterlab.sh
+RUN echo "jupyter labextension disable \"@jupyterlab/apputils-extension:announcements\"" >>  /home/user/sc23_docker_run_jupyterlab.sh
 RUN echo "jupyter lab --ip=\"0.0.0.0\" --no-browser" >> /home/user/sc23_docker_run_jupyterlab.sh
 
 #make sure helpers are executable
