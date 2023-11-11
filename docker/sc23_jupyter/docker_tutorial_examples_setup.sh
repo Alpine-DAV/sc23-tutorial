@@ -13,4 +13,10 @@ cp -r /ascent/install/examples/ascent/tutorial/ascent_intro /tutorial/
 # copy heat diffusion examples
 cp -r /heat_diffusion /tutorial/
 
-
+# build catalyst demo examples
+source /ascent_docker_setup_env.sh
+source /catalyst_docker_setup_env.sh
+cd tutorial
+git clone https://github.com/Alpine-DAV/catalyst-demo.git
+cmake -B catalyst-demo/build -S catalyst-demo
+cmake --build catalyst-demo/build

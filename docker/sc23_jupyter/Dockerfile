@@ -2,18 +2,19 @@
 # Project developers. See top-level LICENSE AND COPYRIGHT files for dates and
 # other details. No copyright assignment is required to contribute to Ascent.
 
-FROM alpinedav/ascent:latest
+ARG TAG_ARCH=x86_64
+FROM alpinedav/ascent:ascent-ubuntu-22.04-${TAG_ARCH}-latest
 
 #
 COPY heat_diffusion /heat_diffusion
 
-# copy tutorial setup script in
-COPY docker_tutorial_examples_setup.sh /
-RUN  ./docker_tutorial_examples_setup.sh
-
-# copy catalyst build script in
+# copy catalyst build script in and run
 COPY docker_catalyst_build.sh /
 RUN  ./docker_catalyst_build.sh
+
+# copy tutorial setup script in and run
+COPY docker_tutorial_examples_setup.sh /
+RUN  ./docker_tutorial_examples_setup.sh
 
 # add our 'user' with password 'docker'
 RUN useradd -ms /bin/bash -G sudo user && echo "user:docker" | chpasswd
